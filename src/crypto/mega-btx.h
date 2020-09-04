@@ -69,6 +69,12 @@ inline uint256 Mega_Btx(const T1 pbegin, const T1 pend,uint32_t timestamp)
     sph_haval256_5_context    ctx_haval;
     //sph_tiger_context         ctx_tiger;
     //static std::chrono::duration<double>[16];
+	
+            LogPrintf("pbegin: %d", pbegin);
+            LogPrintf("pend: %d", pend);
+            LogPrintf("timestamp: %d", timestamp);
+            LogPrintf("lenToHashinit: %d", lenToHashinit);
+	
     static unsigned char pblank[1];
     arith_uint512 hash[23];
     uint32_t permutation_1[HASH_FUNC_COUNT_1];
@@ -342,6 +348,8 @@ inline uint256 Mega_Btx(const T1 pbegin, const T1 pend,uint32_t timestamp)
                 }
 
             }
+			
+			            LogPrintf("hash[22]: %d", hash[22]);
 return ArithToUint256(hash[22].trim256());
 }
 
