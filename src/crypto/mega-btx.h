@@ -349,8 +349,10 @@ inline uint256 Mega_Btx(const T1 pbegin, const T1 pend,uint32_t timestamp)
 
             }
 			
-			            printf("hash[22]: %d", hash[22]);
-return ArithToUint256(hash[22].trim256());
+			            
+						uint256 retval = ArithToUint256(hash[22].trim256());
+						printf("hash[22]: %d", retval);
+return retval
 }
 
 #endif // BITCORE_CRYPTO_MEGA_BTX_H
