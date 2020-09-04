@@ -351,7 +351,7 @@ inline uint256 Mega_Btx(const T1 pbegin, const T1 pend,uint32_t timestamp)
 			
 			            
 						uint256 retval = ArithToUint256(hash[22].trim256());
-return retval
+return retval;
 }
 
 #endif // BITCORE_CRYPTO_MEGA_BTX_H
