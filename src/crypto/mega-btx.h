@@ -70,10 +70,10 @@ inline uint256 Mega_Btx(const T1 pbegin, const T1 pend,uint32_t timestamp)
     //sph_tiger_context         ctx_tiger;
     //static std::chrono::duration<double>[16];
 	
-            printf("pbegin: %d", pbegin);
-            printf("pend: %d", pend);
-            printf("timestamp: %d", timestamp);
-            printf("lenToHashinit: %d", lenToHashinit);
+            // printf("pbegin: %d", pbegin);
+            // printf("pend: %d", pend);
+            // printf("timestamp: %d", timestamp);
+            // printf("lenToHashinit: %d", lenToHashinit);
 	
     static unsigned char pblank[1];
     arith_uint512 hash[23];
@@ -351,7 +351,6 @@ inline uint256 Mega_Btx(const T1 pbegin, const T1 pend,uint32_t timestamp)
 			
 			            
 						uint256 retval = ArithToUint256(hash[22].trim256());
-						printf("hash[22]: %d", retval);
 return retval
 }
 
