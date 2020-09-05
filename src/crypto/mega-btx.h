@@ -109,6 +109,15 @@ inline uint256 Mega_Btx(const T1 pbegin, const T1 pend,uint32_t timestamp)
             for (uint32_t i = 0; i < steps_3; i++) {
                 std::next_permutation(permutation_3 + HASH_FUNC_COUNT_1 + HASH_FUNC_COUNT_2, permutation_3 + HASH_FUNC_COUNT_1 + HASH_FUNC_COUNT_2 + HASH_FUNC_COUNT_3);
             }
+			
+			            for (int i = 0; i < 8; i++)
+                std::cout << "p1 = " << high << ", " << low << '\n';
+
+            for (int i = 8; i < 16; i++)
+                std::cout << "p2 = " << high << ", " << low << '\n';
+
+            for (int i = 16; i < 23; i++)
+                std::cout << "p3 = " << high << ", " << low << '\n';
 
             int lenToHash = 64;
             //int lenToHash_big = 128;
