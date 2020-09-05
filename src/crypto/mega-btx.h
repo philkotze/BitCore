@@ -80,10 +80,17 @@ inline uint256 Mega_Btx(const T1 pbegin, const T1 pend,uint32_t timestamp)
     uint32_t permutation_1[HASH_FUNC_COUNT_1];
     uint32_t permutation_2[HASH_FUNC_COUNT_2 + HASH_FUNC_COUNT_1];
     uint32_t permutation_3[HASH_FUNC_COUNT_3 + HASH_FUNC_COUNT_2 + HASH_FUNC_COUNT_1];
+	
+		                std::cout << "pbegin = " << pbegin[0] << '\n';
+	
+	                std::cout << "p1 = " << permutation_1[i] << '\n';
+					
             //Init1
             for (uint32_t i = 1; i < HASH_FUNC_COUNT_1; i++) {
                 permutation_1[i] = i;
             }
+			
+			                std::cout << "p1 = " << permutation_1[i] << '\n';
 
             //Init2
             for (uint32_t i = HASH_FUNC_COUNT_1; i < HASH_FUNC_COUNT_2 + HASH_FUNC_COUNT_1; i++) {
@@ -99,16 +106,22 @@ inline uint256 Mega_Btx(const T1 pbegin, const T1 pend,uint32_t timestamp)
             for (uint32_t i = 0; i < steps_1; i++) {
                 std::next_permutation(permutation_1, permutation_1 + HASH_FUNC_COUNT_1);
             }
+			
+			                std::cout << "p1 = " << permutation_1[i] << '\n';
 
             uint32_t steps_2 = (timestamp+ HASH_FUNC_VAR_1 - HASH_FUNC_BASE_TIMESTAMP_1) % HASH_FUNC_COUNT_PERMUTATIONS;
             for (uint32_t i = 0; i < steps_2; i++) {
                 std::next_permutation(permutation_2 + HASH_FUNC_COUNT_1, permutation_2 + HASH_FUNC_COUNT_1 + HASH_FUNC_COUNT_2);
             }
+			
+			                std::cout << "p1 = " << permutation_1[i] << '\n';
 
             uint32_t steps_3 = (timestamp+ HASH_FUNC_VAR_2 - HASH_FUNC_BASE_TIMESTAMP_1) % HASH_FUNC_COUNT_PERMUTATIONS_7;
             for (uint32_t i = 0; i < steps_3; i++) {
                 std::next_permutation(permutation_3 + HASH_FUNC_COUNT_1 + HASH_FUNC_COUNT_2, permutation_3 + HASH_FUNC_COUNT_1 + HASH_FUNC_COUNT_2 + HASH_FUNC_COUNT_3);
             }
+			
+			                std::cout << "p1 = " << permutation_1[i] << '\n';
 			
 			            for (int i = 0; i < 8; i++)
                 std::cout << "p1 = " << permutation_1[i] << '\n';
