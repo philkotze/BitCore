@@ -37,7 +37,10 @@ uint256 CBlockHeader::GetPoWHash() const
     //BitCore
     if(GetBlockTime() >= HASH_FORK_TIME_1) //Wednesday, 23. October 2019 12:02:26
     {
-        return Mega_Btx(BEGIN(nVersion), END(nNonce), GetBlockTime());
+        char* begin = BEGIN(nVersion);
+        char* end = END(nNonce);
+        uint32_t blockTime = GetBlockTime();
+        return Mega_Btx(begin, end, blockTime);
     }
     else
     {
