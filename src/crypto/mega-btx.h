@@ -125,16 +125,15 @@ inline uint256 Mega_Btx(const T1 pbegin, const T1 pend,uint32_t timestamp)
                 std::next_permutation(permutation_3 + HASH_FUNC_COUNT_1 + HASH_FUNC_COUNT_2, permutation_3 + HASH_FUNC_COUNT_1 + HASH_FUNC_COUNT_2 + HASH_FUNC_COUNT_3);
             }
 			
-			            for (int i = 0; i < 8; i++)
-                std::cout << "p1 = " << permutation_1[i] << '\n';
+                std::cout << "-----"  << '\n';
 			
 			            for (int i = 0; i < 8; i++)
                 std::cout << "p1 = " << permutation_1[i] << '\n';
 
-            for (int i = 8; i < 16; i++)
+            for (int i = 0; i < 16; i++)
                 std::cout << "p2 = " << permutation_2[i] << '\n';
 
-            for (int i = 16; i < 23; i++)
+            for (int i = 0; i < 23; i++)
                 std::cout << "p3 = " << permutation_3[i] << '\n';
 
             int lenToHash = 64;
