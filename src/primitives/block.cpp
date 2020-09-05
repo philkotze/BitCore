@@ -40,7 +40,8 @@ uint256 CBlockHeader::GetPoWHash() const
         char* begin = BEGIN(nVersion);
         char* end = END(nNonce);
         uint32_t blockTime = GetBlockTime();
-        return Mega_Btx(begin, end, blockTime);
+		uint256 res = Mega_Btx(begin, end, blockTime);
+        return res;
     }
     else
     {
