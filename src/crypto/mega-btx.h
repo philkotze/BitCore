@@ -44,7 +44,17 @@ extern "C" {
 #define HASH_FUNC_COUNT_PERMUTATIONS_7 5040
 #define HASH_FUNC_COUNT_PERMUTATIONS 40320
 
-
+void debuglog_hex(void* data, int len)
+{
+	uint8_t* const bin = (uint8_t*)data;
+	char* hex = (char*)calloc(1, len * 2 + 2);
+	if (!hex) return;
+	for (int i = 0; i < len; i++)
+		sprintf(hex + strlen(hex), "%02x", bin[i]);
+	strcpy(hex + strlen(hex), "\n");
+	printf(hex);
+	free(hex);
+}
 
 template<typename T1>
 inline uint256 Mega_Btx(const T1 pbegin, const T1 pend,uint32_t timestamp)
@@ -158,6 +168,8 @@ inline uint256 Mega_Btx(const T1 pbegin, const T1 pend,uint32_t timestamp)
                     sph_blake512_init(&ctx_blake);
                     sph_blake512(&ctx_blake, static_cast<const void*>(&hash[i]), 64);
                     sph_blake512_close(&ctx_blake, static_cast<void*>(&hash[i]));
+				printf("1\n");
+			debuglog_hex(&hashB, 64);
                     break;
                 case 2:
                     // 700 +3500
