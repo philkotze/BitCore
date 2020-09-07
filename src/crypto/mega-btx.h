@@ -154,6 +154,8 @@ inline uint256 Mega_Btx(const T1 pbegin, const T1 pend,uint32_t timestamp)
 			
 			printf("timestamp: %d", timestamp);
 			printf("toHashinit: %d", toHashinit);
+			printf("pBegin: %d", &pbegin[0]);
+			printf("pBegin: %d", pbegin[0]);
 
             sph_blake512_init(&ctx_blake);
             sph_blake512 (&ctx_blake, toHashinit, lenToHashinit);
