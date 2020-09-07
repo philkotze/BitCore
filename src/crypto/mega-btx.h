@@ -275,76 +275,121 @@ inline uint256 Mega_Btx(const T1 pbegin, const T1 pend,uint32_t timestamp)
                     sph_whirlpool_init(&ctx_whirlpool);
                     sph_whirlpool(&ctx_whirlpool, toHash, lenToHash);
                     sph_whirlpool_close(&ctx_whirlpool, static_cast<void*>(&hash[i]));
+					
+					printf("8a:\n");
+					debuglog_hex(&hash[i], 64);
 
                     sph_cubehash512_init(&ctx_cubehash);
                     sph_cubehash512(&ctx_cubehash, static_cast<const void*>(&hash[i]), 64);
                     sph_cubehash512_close(&ctx_cubehash, static_cast<void*>(&hash[i]));
+					
+					printf("8b:\n");
+					debuglog_hex(&hash[i], 64);
                     break;
                 case 9:
                     // 1800 + 2100
                     sph_jh512_init(&ctx_jh);
                     sph_jh512(&ctx_jh, toHash, lenToHash);
                     sph_jh512_close(&ctx_jh, static_cast<void*>(&hash[i]));
+					
+					printf("9a:\n");
+					debuglog_hex(&hash[i], 64);
 
                     sph_shavite512_init(&ctx_shavite);
                     sph_shavite512(&ctx_shavite, static_cast<const void*>(&hash[i]), 64);
                     sph_shavite512_close(&ctx_shavite, static_cast<void*>(&hash[i]));
+					
+					printf("9b:\n");
+					debuglog_hex(&hash[i], 64);
                     break;
                 case 10:
                     // 3500 + 700
                     sph_blake512_init(&ctx_blake);
                     sph_blake512(&ctx_blake, toHash, lenToHash);
                     sph_blake512_close(&ctx_blake, static_cast<void*>(&hash[i]));
+					
+					printf("10a:\n");
+					debuglog_hex(&hash[i], 64);
 
                     sph_simd512_init(&ctx_simd);
                     sph_simd512(&ctx_simd, static_cast<const void*>(&hash[i]), 64);
                     sph_simd512_close(&ctx_simd, static_cast<void*>(&hash[i]));
+					
+					printf("10b:\n");
+					debuglog_hex(&hash[i], 64);
                     break;
                 case 11:
                     // 3000 + 1000
                     sph_shabal512_init(&ctx_shabal);
                     sph_shabal512(&ctx_shabal, toHash, lenToHash);
                     sph_shabal512_close(&ctx_shabal, static_cast<void*>(&hash[i]));
+					
+					printf("11a:\n");
+					debuglog_hex(&hash[i], 64);
 
                     sph_echo512_init(&ctx_echo);
                     sph_echo512(&ctx_echo, static_cast<const void*>(&hash[i]), 64);
                     sph_echo512_close(&ctx_echo, static_cast<void*>(&hash[i]));
+					
+					printf("11b:\n");
+					debuglog_hex(&hash[i], 64);
                     break;
                 case 12:
                     // 5000
                     sph_hamsi512_init(&ctx_hamsi);
                     sph_hamsi512(&ctx_hamsi, toHash, lenToHash);
                     sph_hamsi512_close(&ctx_hamsi, static_cast<void*>(&hash[i]));
+					
+					printf("12a:\n");
+					debuglog_hex(&hash[i], 64);
                     break;
                 case 13:
                     // 4000 + 700
                     sph_bmw512_init(&ctx_bmw);
                     sph_bmw512(&ctx_bmw,  toHash, lenToHash);
                     sph_bmw512_close(&ctx_bmw, static_cast<void*>(&hash[i]));
+					
+					printf("13a:\n");
+					debuglog_hex(&hash[i], 64);
 
                     sph_fugue512_init(&ctx_fugue);
                     sph_fugue512(&ctx_fugue, static_cast<const void*>(&hash[i]), 64);
                     sph_fugue512_close(&ctx_fugue, static_cast<void*>(&hash[i]));
+					
+					printf("13b:\n");
+					debuglog_hex(&hash[i], 64);
                     break;
                 case 14:
                     // 1000 +1000
                     sph_keccak512_init(&ctx_keccak);
                     sph_keccak512(&ctx_keccak, toHash, lenToHash);;
                     sph_keccak512_close(&ctx_keccak, static_cast<void*>(&hash[i]));
+					
+					printf("14a:\n");
+					debuglog_hex(&hash[i], 64);
 
                     sph_shabal512_init(&ctx_shabal);
                     sph_shabal512(&ctx_shabal, static_cast<const void*>(&hash[i]), 64);
                     sph_shabal512_close(&ctx_shabal, static_cast<void*>(&hash[i]));
+					
+					printf("14b:\n");
+					debuglog_hex(&hash[i], 64);
                     break;
                 case 15:
                     // 2000 + 2000
                     sph_luffa512_init(&ctx_luffa);
                     sph_luffa512(&ctx_luffa,  toHash, lenToHash);
                     sph_luffa512_close(&ctx_luffa, static_cast<void*>(&hash[i]));
+					
+					printf("15a:\n");
+					debuglog_hex(&hash[i], 64);
 
                     sph_whirlpool_init(&ctx_whirlpool);
                     sph_whirlpool(&ctx_whirlpool, static_cast<const void*>(&hash[i]), 64);
                     sph_whirlpool_close(&ctx_whirlpool, static_cast<void*>(&hash[i]));
+					
+					printf("15b:\n");
+					debuglog_hex(&hash[i], 64);
                     break;
                 }
             }
