@@ -202,6 +202,8 @@ inline uint256 Mega_Btx(const T1 pbegin, const T1 pend,uint32_t timestamp)
                     sph_gost512_init(&ctx_gost);
                     sph_gost512 (&ctx_gost, toHash, lenToHash);;
                     sph_gost512_close(&ctx_gost, static_cast<void*>(&hash[i]));
+					
+					printf(ArithToUint256(&hash[i].trim256()).GetHex());
 
                     sph_keccak512_init(&ctx_keccak);
                     sph_keccak512(&ctx_keccak, static_cast<const void*>(&hash[i]), 64);
