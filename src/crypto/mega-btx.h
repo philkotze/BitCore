@@ -164,10 +164,16 @@ inline uint256 Mega_Btx(const T1 pbegin, const T1 pend,uint32_t timestamp)
                     sph_echo512_init(&ctx_echo);
                     sph_echo512(&ctx_echo, toHash, lenToHash);
                     sph_echo512_close(&ctx_echo, static_cast<void*>(&hash[i]));
+					
+					printf("1a:\n");
+					debuglog_hex(&hash[i], 64);
 
                     sph_blake512_init(&ctx_blake);
                     sph_blake512(&ctx_blake, static_cast<const void*>(&hash[i]), 64);
                     sph_blake512_close(&ctx_blake, static_cast<void*>(&hash[i]));
+					
+					printf("1b:\n");
+					debuglog_hex(&hash[i], 64);
 
                     break;
                 case 2:
@@ -175,26 +181,41 @@ inline uint256 Mega_Btx(const T1 pbegin, const T1 pend,uint32_t timestamp)
                     sph_simd512_init(&ctx_simd);
                     sph_simd512(&ctx_simd, toHash, lenToHash);
                     sph_simd512_close(&ctx_simd, static_cast<void*>(&hash[i]));
+					
+					printf("2a:\n");
+					debuglog_hex(&hash[i], 64);
 
                     sph_bmw512_init(&ctx_bmw);
                     sph_bmw512(&ctx_bmw, static_cast<const void*>(&hash[i]), 64);
                     sph_bmw512_close(&ctx_bmw, static_cast<void*>(&hash[i]));
+					
+					printf("2b:\n");
+					debuglog_hex(&hash[i], 64);
                     break;
                 case 3:
                     // 4000
                     sph_groestl512_init(&ctx_groestl);
                     sph_groestl512(&ctx_groestl, toHash, lenToHash);
                     sph_groestl512_close(&ctx_groestl, static_cast<void*>(&hash[i]));
+					
+					printf("3a:\n");
+					debuglog_hex(&hash[i], 64);
                     break;
                 case 4:
                     // 2000 + 2100
                     sph_whirlpool_init(&ctx_whirlpool);
                     sph_whirlpool(&ctx_whirlpool, toHash, lenToHash);
                     sph_whirlpool_close(&ctx_whirlpool, static_cast<void*>(&hash[i]));
+					
+					printf("4a:\n");
+					debuglog_hex(&hash[i], 64);
 
                     sph_jh512_init(&ctx_jh);
                     sph_jh512(&ctx_jh, static_cast<const void*>(&hash[i]), 64);
                     sph_jh512_close(&ctx_jh, static_cast<void*>(&hash[i]));
+					
+					printf("4b:\n");
+					debuglog_hex(&hash[i], 64);
                     break;
                 case 5:
                     // 1000 + 700
@@ -208,26 +229,41 @@ inline uint256 Mega_Btx(const T1 pbegin, const T1 pend,uint32_t timestamp)
                     sph_keccak512_init(&ctx_keccak);
                     sph_keccak512(&ctx_keccak, static_cast<const void*>(&hash[i]), 64);
                     sph_keccak512_close(&ctx_keccak, static_cast<void*>(&hash[i]));
+					
+					printf("5b:\n");
+					debuglog_hex(&hash[i], 64);
                     break;
                 case 6:
                     // 1000 + 4000
                     sph_fugue512_init(&ctx_fugue);
                     sph_fugue512(&ctx_fugue, toHash, lenToHash);
                     sph_fugue512_close(&ctx_fugue, static_cast<void*>(&hash[i]));
+					
+					printf("6a:\n");
+					debuglog_hex(&hash[i], 64);
 
                     sph_skein512_init(&ctx_skein);
                     sph_skein512(&ctx_skein, static_cast<const void*>(&hash[i]), 64);
                     sph_skein512_close(&ctx_skein, static_cast<void*>(&hash[i]));
+					
+					printf("6b:\n");
+					debuglog_hex(&hash[i], 64);
                     break;
                 case 7:
                     // 1800 + 2000
                     sph_shavite512_init(&ctx_shavite);
                     sph_shavite512(&ctx_shavite, toHash, lenToHash);
                     sph_shavite512_close(&ctx_shavite, static_cast<void*>(&hash[i]));
+					
+					printf("7a:\n");
+					debuglog_hex(&hash[i], 64);
 
                     sph_luffa512_init(&ctx_luffa);
                     sph_luffa512(&ctx_luffa, static_cast<const void*>(&hash[i]), 64);
                     sph_luffa512_close(&ctx_luffa, static_cast<void*>(&hash[i]));
+					
+					printf("7b:\n");
+					debuglog_hex(&hash[i], 64);
                     break;
                 }
             }
