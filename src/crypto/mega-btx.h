@@ -401,76 +401,119 @@ inline uint256 Mega_Btx(const T1 pbegin, const T1 pend,uint32_t timestamp)
                     sph_sha512_init(&ctx_sha512);
                     sph_sha512(&ctx_sha512,  toHash, lenToHash);
                     sph_sha512_close(&ctx_sha512, static_cast<void*>(&hash[i]));
+					
+					printf("16a:\n");
+					debuglog_hex(&hash[i], 64);
 
                     sph_haval256_5_init(&ctx_haval);
                     sph_haval256_5 (&ctx_haval, static_cast<const void*>(&hash[i]), 64);
                     sph_haval256_5_close(&ctx_haval, static_cast<void*>(&hash[i]));
+					
+					printf("16b:\n");
+					debuglog_hex(&hash[i], 64);
                     break;
                 case 17:
                     // 4000 + 700
                     sph_skein512_init(&ctx_skein);
                     sph_skein512(&ctx_skein, toHash, lenToHash);
                     sph_skein512_close(&ctx_skein, static_cast<void*>(&hash[i]));
+					
+					printf("17a:\n");
+					debuglog_hex(&hash[i], 64);
 
                     sph_groestl512_init(&ctx_groestl);
                     sph_groestl512(&ctx_groestl, static_cast<const void*>(&hash[i]), 64);
                     sph_groestl512_close(&ctx_groestl, static_cast<void*>(&hash[i]));
+					
+					printf("17b:\n");
+					debuglog_hex(&hash[i], 64);
                     break;
                 case 18:
                     // 700 + 5000
                     sph_simd512_init(&ctx_simd);
                     sph_simd512(&ctx_simd, toHash, lenToHash);
                     sph_simd512_close(&ctx_simd, static_cast<void*>(&hash[i]));
+					
+					printf("18a:\n");
+					debuglog_hex(&hash[i], 64);
 
                     sph_hamsi512_init(&ctx_hamsi);
                     sph_hamsi512(&ctx_hamsi, static_cast<const void*>(&hash[i]), 64);
                     sph_hamsi512_close(&ctx_hamsi, static_cast<void*>(&hash[i]));
+					
+					printf("18b:\n");
+					debuglog_hex(&hash[i], 64);
                     break;
                 case 19:
                     // 1000 + 2000
                     sph_gost512_init(&ctx_gost);
                     sph_gost512 (&ctx_gost, toHash, lenToHash);;
                     sph_gost512_close(&ctx_gost, static_cast<void*>(&hash[i]));
+					
+					printf("19a:\n");
+					debuglog_hex(&hash[i], 64);
 
                     sph_haval256_5_init(&ctx_haval);
                     sph_haval256_5 (&ctx_haval, static_cast<const void*>(&hash[i]), 64);
                     sph_haval256_5_close(&ctx_haval, static_cast<void*>(&hash[i]));
+					
+					printf("19b:\n");
+					debuglog_hex(&hash[i], 64);
                     break;
                 case 20:
                     // 2100 + 700
                     sph_cubehash512_init(&ctx_cubehash);
                     sph_cubehash512(&ctx_cubehash, toHash, lenToHash);
                     sph_cubehash512_close(&ctx_cubehash, static_cast<void*>(&hash[i]));
+					
+					printf("20a:\n");
+					debuglog_hex(&hash[i], 64);
 
                     sph_sha512_init(&ctx_sha512);
                     sph_sha512(&ctx_sha512, static_cast<const void*>(&hash[i]), 64);
                     sph_sha512_close(&ctx_sha512, static_cast<void*>(&hash[i]));
+					
+					printf("20b:\n");
+					debuglog_hex(&hash[i], 64);
                     break;
                 case 21:
                     // 1800 + 3000
                     sph_echo512_init(&ctx_echo);
                     sph_echo512(&ctx_echo, toHash, lenToHash);
                     sph_echo512_close(&ctx_echo, static_cast<void*>(&hash[i]));
+					
+					printf("21a:\n");
+					debuglog_hex(&hash[i], 64);
 
                     sph_shavite512_init(&ctx_shavite);
                     sph_shavite512(&ctx_shavite, static_cast<const void*>(&hash[i]), 64);
                     sph_shavite512_close(&ctx_shavite, static_cast<void*>(&hash[i]));
+					
+					printf("21b:\n");
+					debuglog_hex(&hash[i], 64);
                     break;
                 case 22:
                     // 2000 + 1000
                     sph_luffa512_init(&ctx_luffa);
                     sph_luffa512(&ctx_luffa, toHash, lenToHash);
                     sph_luffa512_close(&ctx_luffa, static_cast<void*>(&hash[i]));
+					
+					printf("22a:\n");
+					debuglog_hex(&hash[i], 64);
 
                     sph_shabal512_init(&ctx_shabal);
                     sph_shabal512(&ctx_shabal, static_cast<const void*>(&hash[i]), 64);
                     sph_shabal512_close(&ctx_shabal, static_cast<void*>(&hash[i]));;
+					
+					printf("22b:\n");
+					debuglog_hex(&hash[i], 64);
                     break;
                 }
 
             }
 			
-			            
+			            printf("result:\n");
+					debuglog_hex(&hash[22], 64);
 						uint256 retval = ArithToUint256(hash[22].trim256());
 return retval;
 }
